@@ -127,7 +127,10 @@
                                                         <Label FontSize="Large" 
                                                                Text="{Binding FormattedMarketPrice}" 
                                                                TextColor="{StaticResource BrandPurple}" />
-                                                   </StackLayout>
+
+                                                        <Label FontSize="Medium"
+                                                              Text="{Binding Address}"/>
+                                                    </StackLayout>
                                                 </StackLayout>
                                             </StackLayout>
                                         </Grid>
