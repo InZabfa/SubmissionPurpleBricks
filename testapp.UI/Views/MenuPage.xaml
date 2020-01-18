@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="testapp.UI.Pages.MenuPage"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:viewModels="clr-namespace:testapp.Core.ViewModels.Menu;assembly=testapp.Core"
+                      x:TypeArguments="viewModels:MenuViewModel"
+                      xmlns:behaviors="clr-namespace:testapp.Core.Behaviors;assembly=testapp.Core"
+                      xmlns:converters="clr-namespace:testapp.UI.Converters"
+                      Icon="hamburger.png">
+    <ContentPage.Content>
+        
+        <StackLayout>
+            
+            <StackLayout HeightRequest="40">                
+                
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,20,0,0" />
+                    </OnPlatform>
+                </StackLayout.Margin>
+                            
+            </StackLayout>
+            
+            <ListView ItemsSource="{Binding MenuItemList}" 
+                      SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"                      
+                      SeparatorVisibility="None">
+                
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="ItemSelected" 
+                                                      Command="{Binding ShowDetailPageAsyncCommand}"
+                                                      Converter="{x:Static converters:SelectedItemEventArgsToSelectedItemConverter.Instance}">
+                    </behaviors:EventToCommandBehavior>
+                </ListView.Behaviors>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>                        
+                        <ViewCell>
+                                <StackLayout Spacing="5"
+                                             HeightRequest="30"
+                                             VerticalOptions="CenterAndExpand"
+                                             Orientation="Horizontal">
+                            
+                                    <Image Source="{Binding Icon}"
+                                           Margin="20,0,0,0" 
+                                           HeightRequest="20"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="CenterAndExpand"/>
+                                    
+                                    <Label Text="{Binding Caption}" 
+                                           HorizontalTextAlignment="Start"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+</views:MvxContentPage>

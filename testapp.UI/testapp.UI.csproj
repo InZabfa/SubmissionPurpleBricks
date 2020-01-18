@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.910310" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="MvvmCross.Forms" Version="6.4.1" />
+    <PackageReference Include="MvvmCross" Version="6.4.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\testapp.Core\testapp.Core.csproj" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Compile Update="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>        
+    <Compile Update="Resources\Colors.xaml.cs">
+      <DependentUpon>Resources\Colors.xaml</DependentUpon>
+    </Compile>        
+    <Compile Update="Views\RootPage.xaml.cs">
+      <DependentUpon>RootPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>        
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
+ </Project>

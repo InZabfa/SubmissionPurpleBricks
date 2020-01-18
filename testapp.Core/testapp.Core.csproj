@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MvvmCross" Version="6.4.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.910310" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.35" />
+    <PackageReference Include="Refit" Version="4.8.14" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\Base\" />
+    <Folder Include="ViewModels\Behaviors\" />
+    <Folder Include="ViewModels\Root\" />
+    <Folder Include="ViewModels\Menu\" />
+    <Folder Include="ViewModels\Home\" />
+    <Folder Include="ViewModels\About\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\LocationPrompt\" />
+    <Folder Include="Services\Middleware\" />
+    <Folder Include="Services\Search\" />
+    <Folder Include="Services\Base\" />
+    <Folder Include="ViewModels\Properties\" />
+    <Folder Include="Services\Property\" />
+  </ItemGroup>
+</Project>

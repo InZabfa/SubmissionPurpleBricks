@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="plum">#400F4C</color>
+    <color name="aubergine">#8A2D87</color>
+
+    <color name="pbDarkPurple">#8A2D87</color>
+    <color name="pbDarkerPurple">#3E154A</color>    
+</resources>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:HomeViewModel"
+                      xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                      xmlns:viewModels="clr-namespace:testapp.Core.ViewModels.Home;assembly=testapp.Core"
+                      xmlns:converters="clr-namespace:testapp.UI.Converters"
+                      xmlns:local="clr-namespace:testapp.UI.Views"
+                      x:Class="testapp.UI.Pages.HomePage"                      
+                      Title="Home">
+    <ContentPage.Content>
+        
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
+            
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         VerticalOptions="CenterAndExpand">
+
+                <StackLayout HorizontalOptions="Center" 
+                             VerticalOptions="Center">
+
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                                       Color="{StaticResource Aubergine}" />
+
+                    <Label Style="{StaticResource TextLabel}" 
+                           Text="Please wait..." />
+                </StackLayout>
+            </StackLayout>
+                        
+            <StackLayout VerticalOptions="StartAndExpand" 
+                         IsVisible="{Binding IsBusy, Converter={x:Static converters:InverseBooleanConverter.Instance}}">
+                
+                <Label Margin="10,10,10,0"
+                       FontAttributes="Bold"
+                       FontSize="Small"
+                       Style="{StaticResource DefaultTextLabel}"
+                       Text="Location"
+                       TextColor="{StaticResource Aubergine}"
+                       VerticalOptions="End" />
+                
+                <SearchBar Margin="5,0,5,0"
+                           IsSpellCheckEnabled="false"
+                           BackgroundColor="Transparent"
+                           PlaceholderColor="{StaticResource Aubergine}"
+                           TextColor="{StaticResource Plum}"
+                           Placeholder="Location (i.e. postcode)"
+                           Text="{Binding Location}"
+                           VerticalOptions="Start"/>
+                
+                <StackLayout BackgroundColor="Transparent"
+                             HorizontalOptions="Fill"
+                             Orientation="Horizontal">
+
+                    <Button Margin="5,0,10,10"
+                            Command="{Binding SearchCommandAsync}"
+                            HorizontalOptions="FillAndExpand"
+                            Style="{StaticResource PrimaryButton}"
+                            Text="Search"
+                            VerticalOptions="End" />
+                </StackLayout>                
+            </StackLayout>
+            
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>

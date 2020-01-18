@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5k-f2-b5h">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="X5k-f2-b5h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y8P-hJ-Z43"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="SplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="50">
+                                <rect key="frame" x="150" y="91" width="300" height="386"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="55"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.33333333333333331" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="50" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" id="57"/>
+                            <constraint firstAttribute="centerY" secondItem="50" secondAttribute="centerY" constant="16" id="58"/>
+                            <constraint firstItem="50" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" id="59"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="339"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SplashLogo" width="375" height="78"/>
+    </resources>
+</document>

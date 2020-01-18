@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{83641F4D-702F-439E-BC9D-A7ED937A6149}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{65C0771A-452F-423B-995C-F0AE46E643BA}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>testapp.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>testapp.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.910310" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="MvvmCross">
+      <Version>6.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Forms">
+      <Version>6.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.0.35</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\testapp.Core\testapp.Core.csproj">
+      <Project>{AE646F66-D527-4088-9A7B-2033E8B77486}</Project>
+      <Name>testapp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\testapp.UI\testapp.UI.csproj">
+      <Project>{EC655929-612F-40F5-A662-29C31F4E4833}</Project>
+      <Name>testapp.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-76x76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-29x29%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-40x40%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-20x20%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-83.5x83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-20x20%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\ItunesArtwork%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-20x20%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-29x29%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-40x40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-60x60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-60x60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-76x76%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-40x40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-App-29x29%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\SplashLogo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\SplashLogo.imageset\SplashLogo%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\SplashLogo.imageset\SplashLogo%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\PBLogo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\PBLogo.imageset\Purplebricks_logo-Hrz-RGB-White%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\PBLogo.imageset\Purplebricks_logo-Hrz-RGB-White%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Information.imageset\Information.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Information.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Information.imageset\Information%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Home.imageset\Home%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Home.imageset\Home.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Home.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Images.xcassets\About.imageset\" />
+    <Folder Include="Resources\Images.xcassets\Hamburger.imageset\" />
+    <Folder Include="Resources\Images.xcassets\SplashLogo.imageset\" />
+    <Folder Include="Resources\Images.xcassets\PBLogo.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger.png" />
+    <BundleResource Include="Resources\hamburger%402x.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

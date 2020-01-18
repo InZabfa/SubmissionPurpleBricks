@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base theme applied regardless of API level -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:colorPrimary">@color/plum</item>
+        <item name="android:colorPrimaryDark">@color/pbDarkerPurple</item>
+        
+        <item name="android:colorActivatedHighlight">@color/aubergine</item>
+        <item name="android:statusBarColor">@color/plum</item>
+        <item name="android:navigationBarColor">@color/plum</item>
+        
+        <item name="windowActionModeOverlay">false</item>
+    </style>
+
+    <!-- Default App theme applied if no resource style overrides for specific API level -->
+    <style name="AppTheme" parent="AppTheme.Base">
+    </style>
+
+    <!-- App Splash Screen Theme -->
+    <style name="AppTheme.Splash.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <!-- Default Splash Screen theme applied if no resource style overrides for specific API level -->
+    <style name="AppTheme.Splash" parent="AppTheme.Splash.Base">
+    </style>
+
+    <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/aubergine</item>
+    </style>
+</resources>

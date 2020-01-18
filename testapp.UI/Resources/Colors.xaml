@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="testapp.UI.Resources.Colors"
+                    xmlns:local="clr-namespace:testapp.UI.Resources">
+
+    <Color x:Key="PrimaryButtonColor">#62C390</Color>
+    <Color x:Key="SeconaryButtonColor">#9B9B9B</Color>
+
+    <Color x:Key="DarkPurple">#282637</Color>    
+    <Color x:Key="Plum">#400f4c</Color>
+    <Color x:Key="LightPurple">#ECD4ED</Color>
+    
+     <Color x:Key="Aubergine">#8a2d87</Color>
+    
+    <Color x:Key="Cool1">#ebebeb</Color>
+    <Color x:Key="Cool6">#686666</Color>
+    <Color x:Key="Cool7">#3c3b3b</Color>
+    
+    <Color x:Key="Whisp0">#f9f9f9</Color>    
+    
+    <Color x:Key="BrandDarkPurple">#3C004D</Color>
+    <Color x:Key="BrandGrey">#3d3d3d</Color>
+    <Color x:Key="BrandMediumLightGrey">#DDDDDD</Color>
+    <Color x:Key="BrandBorderColor">#AAAAAA</Color>
+    <Color x:Key="BrandPurple">#550066</Color>
+    <Color x:Key="BrandLightGrey">#EEEEEE</Color>
+    <Color x:Key="AsherGrey">#555F61</Color>
+
+</ResourceDictionary>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<views:MvxContentPage x:TypeArguments="viewModels:AboutViewModel"
+                      xmlns="http://xamarin.com/schemas/2014/forms" 
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                      xmlns:viewModels="clr-namespace:testapp.Core.ViewModels.About;assembly=testapp.Core"
+                      xmlns:local="clr-namespace:testapp.UI.Views"
+                      mc:Ignorable="d" 
+                      x:Class="testapp.UI.Views.AboutPage" 
+                      Title="About"
+                      BackgroundColor="{StaticResource Cool1}">
+                     
+    <StackLayout>
+        <StackLayout Padding="20"
+                     VerticalOptions="FillAndExpand">
+                     
+            <StackLayout Padding="20,0"
+                         Spacing="0"
+                         BackgroundColor="{StaticResource DarkPurple}"
+                         VerticalOptions="CenterAndExpand">
+
+                <Image HeightRequest="100"
+                       Source="PBLogo"/>
+            </StackLayout>
+            
+            <Label FontSize="Micro"
+                   HorizontalTextAlignment="Center"
+                   Text="v1.0"
+                   TextColor="{StaticResource Cool6}" />
+
+            <Label HorizontalTextAlignment="Center"
+                   Text="The Purplebricks app is designed to help make selling, buying and letting even simpler, whilst offering excellent customer service without the high street prices."
+                   TextColor="{StaticResource AsherGrey}"
+                   VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+        
+        <!--  Buttons  -->
+        <StackLayout BackgroundColor="{StaticResource Whisp0}"
+                     VerticalOptions="End">
+                     
+            <StackLayout Padding="15,10,15,15"
+                         Spacing="15">
+                
+                <Button Command="{Binding VisitWebsiteCommand}"
+                        HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource DarkPurpleOutlinedButton}"
+                        Text="Visit Purplebricks website" />                
+            </StackLayout>
+        </StackLayout>
+            
+    </StackLayout>
+</views:MvxContentPage>
