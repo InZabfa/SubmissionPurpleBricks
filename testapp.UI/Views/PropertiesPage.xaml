@@ -129,7 +129,7 @@
                                                                TextColor="{StaticResource BrandPurple}" />
 
                                                         <Label FontSize="Medium"
-                                                              Text="{Binding Address}"/>
+                                                              Text="{Binding Address}" />
                                                     </StackLayout>
                                                 </StackLayout>
                                             </StackLayout>
