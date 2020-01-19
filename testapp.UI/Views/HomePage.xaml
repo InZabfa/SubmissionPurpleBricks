@@ -7,13 +7,14 @@
                       xmlns:viewModels="clr-namespace:testapp.Core.ViewModels.Home;assembly=testapp.Core"
                       xmlns:converters="clr-namespace:testapp.UI.Converters"
                       xmlns:local="clr-namespace:testapp.UI.Views"
+                      xmlns:behaviors="clr-namespace:testapp.Core.Behaviors;assembly=testapp.Core" 
                       x:Class="testapp.UI.Pages.HomePage"                      
                       Title="Home">
     <ContentPage.Content>
-        
+
         <StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand">
-            
+
             <StackLayout IsVisible="{Binding IsBusy}"
                          VerticalOptions="CenterAndExpand">
 
@@ -27,10 +28,10 @@
                            Text="Please wait..." />
                 </StackLayout>
             </StackLayout>
-                        
+
             <StackLayout VerticalOptions="StartAndExpand" 
                          IsVisible="{Binding IsBusy, Converter={x:Static converters:InverseBooleanConverter.Instance}}">
-                
+
                 <Label Margin="10,10,10,0"
                        FontAttributes="Bold"
                        FontSize="Small"
@@ -38,7 +39,7 @@
                        Text="Location"
                        TextColor="{StaticResource Aubergine}"
                        VerticalOptions="End" />
-                
+
                 <SearchBar Margin="5,0,5,0"
                            IsSpellCheckEnabled="false"
                            BackgroundColor="Transparent"
@@ -47,7 +48,23 @@
                            Placeholder="Location (i.e. postcode)"
                            Text="{Binding Location}"
                            VerticalOptions="Start"/>
-                
+
+                <Picker Margin="5,0,10,10"
+                        x:Name="typePicker"
+                        SelectedIndex="{Binding PickerSelectedIndex, Mode=TwoWay}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>For Sale</x:String>
+                            <x:String>To Let</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                    <Picker.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="SelectedIndexChanged" 
+                                                          Command="{Binding SelectedPickerIndexChanged}">
+                        </behaviors:EventToCommandBehavior>
+                    </Picker.Behaviors>
+                </Picker>
+
                 <StackLayout BackgroundColor="Transparent"
                              HorizontalOptions="Fill"
                              Orientation="Horizontal">
@@ -58,11 +75,11 @@
                             Style="{StaticResource PrimaryButton}"
                             Text="Search"
                             VerticalOptions="End" />
-                </StackLayout>                
+                </StackLayout>
             </StackLayout>
-            
-            
-            
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </views:MvxContentPage>
