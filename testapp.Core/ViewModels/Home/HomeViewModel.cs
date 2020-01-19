@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
@@ -7,6 +8,7 @@ using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using testapp.Core.Services.LocationPrompt;
 using testapp.Core.ViewModels.Properties;
+using Xamarin.Forms;
 
 namespace testapp.Core.ViewModels.Home
 {
@@ -19,7 +21,7 @@ namespace testapp.Core.ViewModels.Home
 
         public IMvxAsyncCommand SearchCommandAsync { get; private set; }
 
-        public HomeViewModel (IMvxNavigationService navigationService, ILocationPromptService locationPromptService, IMvxLog log, IUserDialogs userDialogs)
+        public HomeViewModel(IMvxNavigationService navigationService, ILocationPromptService locationPromptService, IMvxLog log, IUserDialogs userDialogs)
         {
             _navigationService = navigationService;
             _locationPromptService = locationPromptService;
@@ -49,7 +51,11 @@ namespace testapp.Core.ViewModels.Home
                     return;
                 }
 
-                await _navigationService.Navigate<PropertiesViewModel, LocationPromptResult>(locationDetails.First());
+
+                bool toLet = PickerSelectedIndex == 1;
+
+                var parameters = new Tuple<LocationPromptResult, bool>(locationDetails.First(), toLet);
+                await _navigationService.Navigate<PropertiesViewModel, Tuple<LocationPromptResult, bool>>(parameters);
             }
             catch (Exception exc)
             {
@@ -60,8 +66,13 @@ namespace testapp.Core.ViewModels.Home
             {
                 IsBusy = false;
             }
+        }
 
-
+        private int _pickerSelectedIndex;
+        public int PickerSelectedIndex
+        {
+            get => _pickerSelectedIndex;
+            set => SetProperty(ref _pickerSelectedIndex, value);
         }
 
         private bool _isBusy;

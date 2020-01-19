@@ -11,7 +11,7 @@ using testapp.Core.Services.Search;
 
 namespace testapp.Core.ViewModels.Properties
 {
-    public class PropertiesViewModel : BaseViewModel<LocationPromptResult>
+    public class PropertiesViewModel : BaseViewModel<Tuple<LocationPromptResult, bool>>
     {
         private readonly IMvxNavigationService _navigationService;
         private readonly ISearchService _searchService;
@@ -23,6 +23,7 @@ namespace testapp.Core.ViewModels.Properties
         private int _currentPage;
         private bool _hasNextPage;
         private int _total;
+        private bool _toLet;
 
         public IMvxAsyncCommand<SearchPropertyResult> ShowPropertyDetailsAsyncCommand { get; private set; }
         public IMvxAsyncCommand<SearchPropertyResult> LoadMorePropertiesAsyncCommand { get; private set; }
@@ -45,7 +46,7 @@ namespace testapp.Core.ViewModels.Properties
             try
             {
                 IsBusy = true;
-                var result = await _searchService.FindProperties(_locationPrompt);
+                var result = await _searchService.FindProperties(_locationPrompt, _toLet);
                 _currentPage = result.MetaData.PageNumber;
                 _hasNextPage = result.MetaData.HasNextPage;
                 _total = result.MetaData.TotalItemCount;
@@ -96,7 +97,8 @@ namespace testapp.Core.ViewModels.Properties
 
         private void UpdateDisplyingDescription()
         {
-            if (PropertiesList.Any()) {
+            if (PropertiesList.Any())
+            {
                 DisplayingDescription = $"Showing {PropertiesList.Count} of {_total} results";
             }
             else
@@ -115,9 +117,11 @@ namespace testapp.Core.ViewModels.Properties
             }
         }
 
-        public override void Prepare(LocationPromptResult parameter)
+        public override void Prepare(Tuple<LocationPromptResult, bool> parameter)
         {
-            _locationPrompt = parameter;
+            _locationPrompt = parameter.Item1;
+
+            _toLet = parameter.Item2;
 
             PropertiesList = new ObservableCollection<SearchPropertyResult>();
         }
