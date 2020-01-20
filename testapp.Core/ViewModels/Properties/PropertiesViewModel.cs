@@ -25,6 +25,7 @@ namespace testapp.Core.ViewModels.Properties
         private int _total;
         private bool _toLet;
 
+
         public IMvxAsyncCommand<SearchPropertyResult> ShowPropertyDetailsAsyncCommand { get; private set; }
         public IMvxAsyncCommand<SearchPropertyResult> LoadMorePropertiesAsyncCommand { get; private set; }
         public IMvxAsyncCommand RefreshPropertiesAsyncCommand { get; private set; }
@@ -50,6 +51,7 @@ namespace testapp.Core.ViewModels.Properties
                 _currentPage = result.MetaData.PageNumber;
                 _hasNextPage = result.MetaData.HasNextPage;
                 _total = result.MetaData.TotalItemCount;
+
 
                 PropertiesList.Clear();
                 foreach (var property in result.Properties)
@@ -81,11 +83,30 @@ namespace testapp.Core.ViewModels.Properties
         {
             if (searchPropertyResult == null) return;
 
-            if (PropertiesList[PropertiesList.Count - 1] == searchPropertyResult)
+            if (PropertiesList[PropertiesList.Count - 1] == searchPropertyResult && _hasNextPage)
             {
-                //Load more properties if any
+                await Task.Delay(1000);//Only required to be able to view ActivityIndicator in the footer.
+                LoadingNextPage = true;
+            }
+
+            if (LoadingNextPage == true)
+            {
+                var result = await _searchService.FindProperties(_locationPrompt, _toLet, _currentPage + 1);
+
+                _currentPage = result.MetaData.PageNumber;
+                _hasNextPage = result.MetaData.HasNextPage;
+               
+                foreach (var property in result.Properties)
+                {
+                    PropertiesList.Add(property);
+                }
+
+                UpdateDisplyingDescription();
+
+                LoadingNextPage = false;
             }
         }
+
 
         private async Task ShowPropertyDetailsAsync(SearchPropertyResult searchPropertyResult)
         {
@@ -126,11 +147,19 @@ namespace testapp.Core.ViewModels.Properties
             PropertiesList = new ObservableCollection<SearchPropertyResult>();
         }
 
+
         private bool _isBusy;
         public bool IsBusy
         {
             get => _isBusy;
             set => SetProperty(ref _isBusy, value);
+        }
+
+        private bool _loadingNextPage;
+        public bool LoadingNextPage
+        {
+            get => _loadingNextPage;
+            set => SetProperty(ref _loadingNextPage, value);
         }
 
         private ObservableCollection<SearchPropertyResult> _propertiesList;
